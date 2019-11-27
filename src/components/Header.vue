@@ -1,44 +1,91 @@
 <template>
   <div class="container">
     <div class="container__content">
-      <h1>Hello</h1>
+      <header class="header">
+        <h1 class="header__title text-white">Test assignment for Frontend Developer position</h1>
+        <p
+          class="header__desc text-white"
+        >We kindly remind you that your test assignment should be submitted as a link to github/bitbucket repository. Please be patient, we consider and respond to every application that meets minimum requirements. We look forward to your submission. Good luck!</p>
+        <button class="btn btn--primary">Sign Up</button>
+      </header>
     </div>
   </div>
 </template>
 
 <style lang="less" scoped>
-.bg-settings () {
-  min-height: 100vh;
+//main desktop
+.container {
+  height: 723px;
+  background: url("../assets/banner-bg/banner-bg-1204x723.jpg");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
 }
 
-@media only screen and (max-width: 321px) {
+.header {
+  max-width: 450px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  &__title,
+  &__desc {
+    padding-bottom: 45px;
+  }
+}
+
+// mobile
+@media only screen and (max-width: 479px) {
   .container {
-    .bg-settings;
+    height: 393px;
     background: url("../assets/banner-bg/banner-bg-320x393.jpg");
     background-size: cover;
     background-position: center center;
+
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 15px;
+    }
   }
-}
-@media only screen and (min-width: 322px) and (max-width: 768px) {
-  .container {
-    .bg-settings;
-    background: url("../assets/banner-bg/banner-bg-768x622.jpg");
-    background-size: cover;
-    background-position: center center;
+
+  .header {
+    text-align: center;
+    width: 290px;
+
+    &__title,
+    &__desc {
+      padding-bottom: 30px;
+    }
+    &__title {
+      font-size: 2rem;
+      line-height: 2.4rem;
+    }
+    &__desc {
+      font-size: 1rem;
+      line-height: 1.4rem;
+    }
   }
 }
 
-@media only screen and (min-width: 1204px) and (max-width: 1919px) {
+// tablet
+@media only screen and (min-width: 480px) and (max-width: 859px) {
   .container {
-    .bg-settings;
-    background: url("../assets/banner-bg/banner-bg-1204x723.jpg");
+    height: 622px;
+    background: url("../assets/banner-bg/banner-bg-768x622.jpg");
     background-size: cover;
     background-position: center center;
+
+    &__content {
+      padding: 0 24px;
+    }
   }
 }
-@media only screen and (min-width: 1920px) {
+
+// 2K
+@media only screen and (min-width: 1921px) {
   .container {
-    .bg-settings;
+    height: 676px;
     background: url("../assets/banner-bg/banner-bg-2K.jpg");
     background-size: cover;
     background-position: center center;

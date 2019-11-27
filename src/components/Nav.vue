@@ -33,13 +33,21 @@
           <img src="../assets/sign-out.svg" alt="logout" />
         </button>
       </div>
+      <div class="menu-gadget">
+        <button class="btn btn--icon">
+          <img src="../assets/line-menu.svg" alt="line-menu" />
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="less" scoped>
 @import "../less/index.less";
+
+// desktop
 .container__content {
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,14 +63,17 @@
     list-style-type: none;
     display: inline;
     margin-right: 30px;
+
     &:last-child {
       margin-right: 0;
     }
+
     .active {
       color: @secondary;
     }
   }
 }
+
 .user {
   width: 210px;
   display: flex;
@@ -91,12 +102,38 @@
   }
 }
 
-.btn {
-  cursor: pointer;
-  &--icon {
-    background: none;
-    outline: none;
-    border: none;
+.menu-gadget {
+  display: none;
+}
+
+@media only screen and (max-width: 479px) {
+  .container__content {
+    padding: 0 15px;
+  }
+  .nav,
+  .user {
+    display: none;
+  }
+
+  .menu-gadget {
+    display: block;
   }
 }
+
+// tablet
+@media only screen and (min-width: 321px) and (max-width: 859px) {
+  .container__content {
+    padding: 0 24px;
+  }
+  .nav,
+  .user {
+    display: none;
+  }
+
+  .menu-gadget {
+    display: block;
+  }
+}
+
+
 </style>
