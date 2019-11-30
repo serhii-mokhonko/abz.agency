@@ -41,14 +41,14 @@ a {
 
 .link {
     font-family: @sF;
-    font-size: 1.46rem;
+    font-size  : 1.46rem;
     font-weight: 700;
-    color: @primary;
-  
+    color      : @primary;
+
     &:hover {
-      color: @primary-hov;
+        color: @primary-hov;
     }
-  }
+}
 
 p {
     font-family: @sF;
@@ -58,6 +58,20 @@ p {
 
 .text-white {
     color: #fff;
+}
+
+
+.block-title {
+    width     : 100%;
+    max-width : 570px;
+    text-align: center;
+    margin    : 0 auto;
+}
+
+.content {
+    display        : flex;
+    align-items    : flex-start;
+    justify-content: space-between;
 }
 
 @import "./media.less";

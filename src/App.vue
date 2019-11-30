@@ -3,6 +3,7 @@
     <abz-nav></abz-nav>
     <abz-header></abz-header>
     <abz-about></abz-about>
+    <abz-relationships></abz-relationships>
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import Nav from "./components/Nav.vue";
 import Header from "./components/Header.vue";
 import About from "./components/About.vue";
+import Relationships from "./components/Relationships.vue";
 
 export default {
   name: "app",
   components: {
     abzNav: Nav,
     abzHeader: Header,
-    abzAbout: About
+    abzAbout: About,
+    abzRelationships: Relationships
   }
 };
 </script>

@@ -4,11 +4,11 @@
       <div class="block-title">
         <h2>Let's get acquainted</h2>
       </div>
-      <div class="about-content">
-        <div class="about-content__sidebar">
+      <div class="content">
+        <div class="content__sidebar">
           <img src="../assets/man-mobile.svg" alt="images" />
         </div>
-        <div class="about-content__main">
+        <div class="content__main">
           <h3>I am cool frontend developer</h3>
           <p>When real users have a slow experience on mobile, they're much less likely to find what they are looking for or purchase from you in the future. For many sites this equates to a huge missed opportunity, especially when more than half of visits are abandoned if a mobile page takes over 3 seconds to load.</p>
           <p>Last week, Google Search and Ads teams announced two new speed initiatives to help improve user-experience on the web.</p>
@@ -26,15 +26,7 @@
   padding: 150px 0;
 }
 
-.block-title {
-  width: 100%;
-  text-align: center;
-}
-
-.about-content {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+.content {
 
   &__sidebar {
     width: 100%;
@@ -69,7 +61,7 @@
     padding: 75px 0;
   }
 
-  .about-content {
+  .content {
     flex-direction: column;
 
     &__main {
