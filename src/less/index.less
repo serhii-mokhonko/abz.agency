@@ -3,26 +3,31 @@
 h1 {
     font-size  : 3.33rem;
     line-height: 4rem;
+    font-weight: 600;
 }
 
 h2 {
     font-size  : 2.8rem;
     line-height: 3.4rem;
+    font-weight: 600;
 }
 
 h3 {
     font-size  : 1.73rem;
     line-height: 2.06rem;
+    font-weight: 600;
 }
 
 h4 {
     font-size  : 1.46rem;
     line-height: 1.73rem;
+    font-weight: 600;
 }
 
 h5 {
     font-size  : 1.2rem;
     line-height: 1.4rem;
+    font-weight: 400;
 }
 
 a {
@@ -34,6 +39,17 @@ a {
     }
 }
 
+.link {
+    font-family: @sF;
+    font-size: 1.46rem;
+    font-weight: 700;
+    color: @primary;
+  
+    &:hover {
+      color: @primary-hov;
+    }
+  }
+
 p {
     font-family: @sF;
     font-size  : 1.2rem;
@@ -44,51 +60,5 @@ p {
     color: #fff;
 }
 
-// buttons
-
-.btn {
-    font-family: @sF;
-    font-size  : 1.33rem;
-    font-weight: 400;
-
-    border       : none;
-    border-radius: 3px;
-
-    cursor: pointer;
-
-    transition: all 0.2s linear;
-
-    &--primary {
-        min-width: 290px;
-        height   : 40px;
-
-        background: @primary;
-        color     : #fff;
-
-        &:hover {
-            background: @primary-hov;
-        }
-    }
-
-    &--secondary {
-        min-width: 290px;
-        height   : 40px;
-
-        background: none;
-        color     : @primary;
-
-        border: 2px solid @primary;
-
-        &:hover {
-            background: #fee6d2;
-            color     : #fc831f;
-        }
-    }
-
-    &--icon {
-        min-width : none;
-        background: none;
-        border    : none;
-    }
-
-}
+@import "./media.less";
+@import "./buttons.less";

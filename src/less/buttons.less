@@ -1,0 +1,49 @@
+// buttons
+
+.btn {
+    font-family: @sF;
+    font-size  : 1.33rem;
+    font-weight: 400;
+
+    border       : none;
+    border-radius: 3px;
+
+    cursor: pointer;
+
+    transition: all 0.2s linear;
+
+    &--primary {
+        min-width: 290px;
+        height   : 40px;
+
+        background: @primary;
+        color     : #fff;
+
+        &:hover {
+            background: @primary-hov;
+        }
+    }
+
+    &--secondary {
+        min-width: 290px;
+        height   : 40px;
+
+        background: none;
+        color     : @primary;
+
+        border: 2px solid @primary;
+
+        &:hover {
+            background: #fee6d2;
+            color     : #fc831f;
+        }
+    }
+
+    &--icon {
+        min-width : none;
+        background: none;
+        border    : none;
+        outline: none;
+    }
+
+}

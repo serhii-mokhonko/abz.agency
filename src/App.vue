@@ -2,18 +2,21 @@
   <div id="app">
     <abz-nav></abz-nav>
     <abz-header></abz-header>
+    <abz-about></abz-about>
   </div>
 </template>
 
 <script>
 import Nav from "./components/Nav.vue";
 import Header from "./components/Header.vue";
+import About from "./components/About.vue";
 
 export default {
   name: "app",
   components: {
     abzNav: Nav,
-    abzHeader: Header
+    abzHeader: Header,
+    abzAbout: About
   }
 };
 </script>

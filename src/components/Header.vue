@@ -29,7 +29,7 @@
   transform: translate(0, -50%);
   &__title,
   &__desc {
-    padding-bottom: 45px;
+    margin-bottom: 45px;
   }
 }
 
@@ -55,15 +55,12 @@
 
     &__title,
     &__desc {
-      padding-bottom: 30px;
-    }
-    &__title {
-      font-size: 2rem;
-      line-height: 2.4rem;
-    }
-    &__desc {
-      font-size: 1rem;
-      line-height: 1.4rem;
+      margin-bottom: 30px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
     }
   }
 }
