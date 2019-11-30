@@ -27,7 +27,6 @@
 }
 
 .content {
-
   &__sidebar {
     width: 100%;
     max-width: 360px;
@@ -58,7 +57,7 @@
 //mobile
 @media only screen and (max-width: 479px) {
   .container__content {
-    padding: 75px 0;
+    padding: 75px 15px;
   }
 
   .content {
@@ -66,12 +65,20 @@
 
     &__main {
       text-align: center;
+      padding: 30px 15px;
 
       h3 {
         max-width: 290px;
         margin: 0 auto 30px;
       }
     }
+  }
+}
+
+//tablet
+@media only screen and (min-width: 480px) and (max-width: 859px) {
+  .container__content {
+    padding: 75px 24px;
   }
 }
 </style>

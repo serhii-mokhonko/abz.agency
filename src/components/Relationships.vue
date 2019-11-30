@@ -32,7 +32,6 @@
 }
 .content__block {
   width: 100%;
-  max-width: 30%;
   margin-right: 30px;
 
   img {
@@ -47,7 +46,29 @@
   }
 }
 
+//mobile
+@media only screen and (max-width: 479px) {
+  .container__content {
+    padding: 0 15px;
+  }
+  .content {
+    flex-direction: column;
+    width: 100%;
+    min-width: 290px;
+    margin: 0 auto;
+
+    &__block {
+      margin-top: 30px;
+      text-align: center;
+    }
+  }
+}
+
+//tablet
 @media only screen and (min-width: 480px) and (max-width: 859px) {
+  .container__content{
+    padding: 0 86px;
+  }
   .content {
     flex-direction: column;
   }
@@ -55,6 +76,7 @@
     max-width: 600px;
     margin: 0 auto;
     img {
+      height: 100%;
       margin-right: 30px;
       display: block;
       float: left;
