@@ -6,7 +6,6 @@
       </div>
       <div class="content">
         <div class="content__block">
-            
           <img src="../assets/html.svg" alt="image" />
           <h3>I'm in love with HTML</h3>
           <p>Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web applications.</p>
@@ -36,10 +35,6 @@
   max-width: 30%;
   margin-right: 30px;
 
-  &:last-child {
-    margin-right: 0;
-  }
-
   img {
     margin-bottom: 30px;
   }
@@ -52,9 +47,18 @@
   }
 }
 
-
 @media only screen and (min-width: 480px) and (max-width: 859px) {
-
+  .content {
+    flex-direction: column;
+  }
+  .content__block {
+    max-width: 600px;
+    margin: 0 auto;
+    img {
+      margin-right: 30px;
+      display: block;
+      float: left;
+    }
+  }
 }
-
 </style>
