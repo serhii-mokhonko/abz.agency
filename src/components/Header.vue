@@ -2,7 +2,7 @@
   <div class="container">
     <div class="container__content">
       <header class="header">
-        <h1 class="header__title text-white">Test assignment for Frontend Developer position</h1>
+        <h1 class="text-white">Test assignment for Frontend Developer position</h1>
         <p
           class="header__desc text-white"
         >We kindly remind you that your test assignment should be submitted as a link to github/bitbucket repository. Please be patient, we consider and respond to every application that meets minimum requirements. We look forward to your submission. Good luck!</p>
@@ -34,7 +34,7 @@
 }
 
 // mobile
-@media only screen and (max-width: 426px) {
+@media only screen and (max-width: 425px) {
   .container {
     height: 393px;
     background: url("../assets/banner-bg/banner-bg-320x393.jpg");
