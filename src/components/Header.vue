@@ -13,7 +13,7 @@
 </template>
 
 <style lang="less" scoped>
-//main desktop
+
 .container {
   height: 723px;
   background: url("../assets/banner-bg/banner-bg-1204x723.jpg");
@@ -34,7 +34,7 @@
 }
 
 // mobile
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 426px) {
   .container {
     height: 393px;
     background: url("../assets/banner-bg/banner-bg-320x393.jpg");
@@ -66,7 +66,7 @@
 }
 
 // tablet
-@media only screen and (min-width: 480px) and (max-width: 859px) {
+@media only screen and (min-width: 426px) and (max-width: 768px) {
   .container {
     height: 622px;
     background: url("../assets/banner-bg/banner-bg-768x622.jpg");
@@ -80,7 +80,7 @@
 }
 
 // 2K
-@media only screen and (min-width: 1921px) {
+@media only screen and (min-width: 1025px) {
   .container {
     height: 676px;
     background: url("../assets/banner-bg/banner-bg-2K.jpg");

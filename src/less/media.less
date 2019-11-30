@@ -1,5 +1,13 @@
+.container {
+    &__content {
+        width : 100%;
+        margin: 0 auto;
+    }
+}
+
+
 // mobile
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 425px) {
     h1 {
         font-size  : 2rem;
         line-height: 2.4rem;
@@ -14,18 +22,46 @@
         font-size  : 1.46rem;
         line-height: 1.73rem;
     }
+
+    .container {
+        &__content {
+            min-width: 320px;
+            padding  : 0 15px;
+        }
+    }
 }
 
 // tablet
-@media only screen and (min-width: 480px) and (max-width: 859px) {
+@media only screen and (min-width: 426px) and (max-width: 768px) {
     h1 {
         font-size  : 2.8rem;
         line-height: 3.4rem;
     }
+
+    .container {
+        &__content {
+            max-width: 765px;
+            padding  : 0 24px;
+        }
+    }
 }
 
 // desktop
-@media only screen and (min-width: 860px) and (max-width: 1920px) {}
+@media only screen and (min-width: 766px) and (max-width: 1024px) {
+    .container {
+        &__content {
+            max-width: 1024px;
+            padding  : 0 47px;
+        }
+    }
+}
 
 // 2K
-@media only screen and (min-width: 1921px) {}
+@media only screen and (min-width: 1025px) {
+    .container {
+        &__content {
+            max-width: 1170px;
+            padding  : 0 15px;
+        }
+    }
+}

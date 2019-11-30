@@ -45,7 +45,6 @@
 <style lang="less" scoped>
 @import "../less/index.less";
 
-// desktop
 .container__content {
   height: 64px;
   display: flex;
@@ -62,7 +61,7 @@
   li {
     list-style-type: none;
     display: inline;
-    margin-right: 30px;
+    margin-right: 25px;
 
     &:last-child {
       margin-right: 0;
@@ -106,10 +105,8 @@
   display: none;
 }
 
-@media only screen and (max-width: 479px) {
-  .container__content {
-    padding: 0 15px;
-  }
+//mobile
+@media only screen and (max-width: 425px) {
   .nav,
   .user {
     display: none;
@@ -121,10 +118,7 @@
 }
 
 // tablet
-@media only screen and (min-width: 321px) and (max-width: 859px) {
-  .container__content {
-    padding: 0 24px;
-  }
+@media only screen and (min-width: 426px) and (max-width: 768px) {
   .nav,
   .user {
     display: none;

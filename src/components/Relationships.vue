@@ -47,10 +47,7 @@
 }
 
 //mobile
-@media only screen and (max-width: 479px) {
-  .container__content {
-    padding: 0 15px;
-  }
+@media only screen and (max-width: 425px) {
   .content {
     flex-direction: column;
     width: 100%;
@@ -65,7 +62,7 @@
 }
 
 //tablet
-@media only screen and (min-width: 480px) and (max-width: 859px) {
+@media only screen and (min-width: 426px) and (max-width: 768px) {
   .container__content{
     padding: 0 86px;
   }

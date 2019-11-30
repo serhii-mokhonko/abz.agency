@@ -21,9 +21,9 @@
 
 <style lang="less" scoped>
 @import "../less/index.less";
-
 .container__content {
-  padding: 150px 0;
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 
 .content {
@@ -55,9 +55,10 @@
 }
 
 //mobile
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 425px) {
   .container__content {
-    padding: 75px 15px;
+    padding-top: 75px;
+    padding-bottom: 75px;
   }
 
   .content {
@@ -76,9 +77,10 @@
 }
 
 //tablet
-@media only screen and (min-width: 480px) and (max-width: 859px) {
+@media only screen and (min-width: 426px) and (max-width: 768px) {
   .container__content {
-    padding: 75px 24px;
+    padding-top: 75px;
+    padding-bottom: 75px;
   }
 }
 </style>

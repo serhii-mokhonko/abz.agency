@@ -4,6 +4,7 @@
     <abz-header></abz-header>
     <abz-about></abz-about>
     <abz-relationships></abz-relationships>
+    <abz-requirements></abz-requirements>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import Nav from "./components/Nav.vue";
 import Header from "./components/Header.vue";
 import About from "./components/About.vue";
 import Relationships from "./components/Relationships.vue";
+import Requirements from "./components/Requirements.vue";
 
 export default {
   name: "app",
@@ -19,7 +21,8 @@ export default {
     abzNav: Nav,
     abzHeader: Header,
     abzAbout: About,
-    abzRelationships: Relationships
+    abzRelationships: Relationships,
+    abzRequirements: Requirements
   }
 };
 </script>
