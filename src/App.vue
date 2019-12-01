@@ -5,6 +5,7 @@
     <abz-about></abz-about>
     <abz-relationships></abz-relationships>
     <abz-requirements></abz-requirements>
+    <abz-users></abz-users>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import Header from "./components/Header.vue";
 import About from "./components/About.vue";
 import Relationships from "./components/Relationships.vue";
 import Requirements from "./components/Requirements.vue";
+import Users from "./components/Users.vue";
 
 export default {
   name: "app",
@@ -22,7 +24,8 @@ export default {
     abzHeader: Header,
     abzAbout: About,
     abzRelationships: Relationships,
-    abzRequirements: Requirements
+    abzRequirements: Requirements,
+    abzUsers: Users
   }
 };
 </script>
