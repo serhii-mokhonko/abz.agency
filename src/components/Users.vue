@@ -86,6 +86,7 @@ export default {
   display: flex;
   justify-content: start;
 
+  overflow: hidden;
   &__avatar {
     padding-right: 9px;
     img {
@@ -114,6 +115,24 @@ export default {
   }
 }
 
+// mobile
+@media only screen and (max-width: 425px) {
+  .user {
+    margin: 0 auto 30px;
+
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    &__avatar {
+      padding: 0;
+    }
+    &__name {
+      padding: 14px 0;
+    }
+  }
+}
+
 // tablet
 @media only screen and (min-width: 426px) and (max-width: 768px) {
   .user {
@@ -128,6 +147,13 @@ export default {
     &__name {
       padding: 15px 0;
     }
+  }
+}
+
+//2K
+@media only screen and (min-width: 1025px) {
+  .user {
+    max-width: 360px;
   }
 }
 </style>
