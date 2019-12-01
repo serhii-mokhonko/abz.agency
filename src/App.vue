@@ -34,15 +34,15 @@ export default {
 <style lang="less">
 @import "./less/index.less";
 
+html {
+  font-family: @mF;
+  font-size: 15px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-#app {
-  font-family: @mF;
-  font-size: 15px;
 }
 
 .container {
