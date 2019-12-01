@@ -35,7 +35,6 @@
 }
 
 .block-title {
-  max-width: 100%;
   margin-bottom: 60px;
 }
 
@@ -75,10 +74,7 @@
   .content {
     flex-direction: column;
   }
-
-  .block-title {
-    margin-bottom: 34px;
-  }
+  
   .man-laptop {
     margin: 0 auto 30px;
     img{

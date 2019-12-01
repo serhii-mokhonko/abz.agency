@@ -29,6 +29,7 @@
 @import "../less/index.less";
 .content {
   margin-top: 60px;
+  padding-bottom: 145px;
 }
 .content__block {
   width: 100%;
@@ -53,6 +54,7 @@
     width: 100%;
     min-width: 290px;
     margin: 0 auto;
+    padding-bottom: 75px;
 
     &__block {
       margin-top: 30px;
@@ -63,11 +65,9 @@
 
 //tablet
 @media only screen and (min-width: 426px) and (max-width: 768px) {
-  .container__content{
-    padding: 0 86px;
-  }
   .content {
     flex-direction: column;
+    padding-bottom: 122px;
   }
   .content__block {
     max-width: 600px;
