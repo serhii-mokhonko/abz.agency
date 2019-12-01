@@ -86,10 +86,6 @@ export default {
   display: flex;
   justify-content: start;
 
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap; 
-
   &__avatar {
     padding-right: 9px;
     img {
@@ -115,6 +111,23 @@ export default {
   button {
     display: block;
     margin: 60px auto 0;
+  }
+}
+
+// tablet
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .user {
+    max-width: 220px;
+    margin-top: 42px;
+    flex-direction: column;
+    text-align: center;
+
+    &__avatar {
+      padding: 0;
+    }
+    &__name {
+      padding: 15px 0;
+    }
   }
 }
 </style>
