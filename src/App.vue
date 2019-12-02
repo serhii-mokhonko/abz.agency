@@ -6,6 +6,7 @@
     <abz-relationships></abz-relationships>
     <abz-requirements></abz-requirements>
     <abz-users></abz-users>
+    <abz-register></abz-register>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import About from "./components/About.vue";
 import Relationships from "./components/Relationships.vue";
 import Requirements from "./components/Requirements.vue";
 import Users from "./components/Users.vue";
+import Register from "./components/Register.vue";
 
 export default {
   name: "app",
@@ -25,7 +27,8 @@ export default {
     abzAbout: About,
     abzRelationships: Relationships,
     abzRequirements: Requirements,
-    abzUsers: Users
+    abzUsers: Users,
+    abzRegister: Register
   }
 };
 </script>
