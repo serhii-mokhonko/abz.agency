@@ -38,7 +38,6 @@ export default {
     };
   },
   methods: {
-    //should done sort user by date registration
     async loadData(page) {
       await fetch(
         "https://frontend-test-assignment-api.abz.agency/api/v1/users?page=" +
@@ -54,7 +53,6 @@ export default {
       this.LoadedData.users.forEach(element => {
         this.users.push(element);
       });
-
       this.page++;
     }
   },
@@ -84,7 +82,7 @@ export default {
   margin-top: 65px;
 
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 
   overflow: hidden;
   &__avatar {

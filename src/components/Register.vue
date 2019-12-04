@@ -15,22 +15,58 @@
           <div class="input-invalid">Error</div>
         </div>
         <div class="input error">
-          <label for="email" class="input__label">Name</label>
+          <label for="email" class="input__label">Email</label>
           <input type="text" id="email" placeholder="Your email" required />
           <div class="input-invalid">Error</div>
         </div>
         <div class="input">
-          <label for="phone" class="input__label">Name</label>
+          <label for="phone" class="input__label">Phone</label>
           <input type="text" id="phone" placeholder="+38(___)___ __ __" required />
           <div class="input-invalid">Error</div>
         </div>
+        <div class="input">
+          <abz-select></abz-select>
+        </div>
       </form>
+
+      <div class="block-title">
+        <h2>Register to get a work</h2>
+      </div>
+      <div class="block-title block-title--sub">
+        <h5>Attention! After successful registration and alert, update the list of users in the block from the top</h5>
+      </div>
+
+      <div class="block-title">
+        <h2>Register to get a work</h2>
+      </div>
+      <div class="block-title block-title--sub">
+        <h5>Attention! After successful registration and alert, update the list of users in the block from the top</h5>
+      </div>
+
+      <div class="block-title">
+        <h2>Register to get a work</h2>
+      </div>
+      <div class="block-title block-title--sub">
+        <h5>Attention! After successful registration and alert, update the list of users in the block from the top</h5>
+      </div>
+    
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import Select from "./Select.vue"
+
+export default {
+  data () {
+    return {
+
+    }
+  },
+  components: {
+    abzSelect: Select
+  }
+};
 </script>
 
 <style lang="less" scoped>
