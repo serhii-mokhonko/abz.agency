@@ -1,12 +1,16 @@
 <template>
   <div class="select-container">
     <div class="select-input" @click="visible = !visible">
-      <span class="select-input__content">{{ content }}</span>
+      <span class="select-input__content">{{ content.name }}</span>
     </div>
-    <ul class="option" v-if="visible" @click="selectPosition($event)">
-      <li class="option__item" v-for="(option, index) of options" :key="index" :value="option.id">
-        {{ option.name }}
-      </li>
+    <ul class="option" v-if="visible">
+      <li
+        class="option__item"
+        v-for="(option, index) of options"
+        :key="index"
+        @click="selectPosition(option)"
+        :class="{selected: option.id == content.id}"
+      >{{ option.name }}</li>
     </ul>
   </div>
 </template>
@@ -16,8 +20,7 @@ export default {
   data() {
     return {
       visible: false, // options area visible or not
-      content: "Select Your Possition", //element which will be select by user
-      selected: 1, //for selected element
+      content: { id: null, name: "Select Your Possition" }, //element which will be select by user
       //here is array of objects
       options: [
         {
@@ -25,34 +28,22 @@ export default {
           name: "Option 1"
         },
         {
-          id: 1,
+          id: 4,
           name: "Option 2"
         },
         {
           id: 2,
           name: "Option 3"
-        },
+        }
       ]
     };
   },
   methods: {
-    // find necessary element in array and display it
-    selectPosition(event) {
-      const value = event.target.getAttribute("value");
-      const el = this.options.findIndex((el) => el.id === +value);
-      this.content = this.options[el].name;
+    selectPosition(item) {
+      this.content = item;
+      this.$emit("selectData", item);
       this.visible = !this.visible;
     }
-  },
-  created() {
-    // fetch("https://frontend-test-assignment-api.abz.agency/api/v1/positions")
-    //   .then(function(response) {
-    //     return response.json();
-    //   })
-    //   .then(function(data) {
-    //     console.log(data);
-    //     // process success response
-    //   });
   }
 };
 </script>
@@ -61,6 +52,7 @@ export default {
 .select-container {
   width: 100%;
   margin-bottom: 100px;
+  position: relative;
 }
 
 //SELECT
@@ -70,7 +62,18 @@ export default {
   padding: 0 16px;
   border: 1px solid #b7b7b7;
   border-radius: 3px;
-  position: relative;
+
+  &::after {
+    content: "";
+    width: 16px;
+    height: 9px;
+    background: url("../assets/caret-down.svg") no-repeat;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    z-index: 99;
+    transform: translate(0, -50%);
+  }
 
   &__content {
     font-size: 1.06rem;
@@ -84,9 +87,11 @@ export default {
 //OPTIONS
 .option {
   border: 1px solid #b7b7b7;
-  border-radius: 0 0 3px 3px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 7px #b7b7b7;
   width: 100%;
   position: absolute;
+  top: 0;
 
   &__item {
     list-style: none;
@@ -94,14 +99,13 @@ export default {
     height: 47px;
     padding: 0 16px;
     background: #fff;
-    // position: relative;
     cursor: pointer;
 
     &:before {
-         content: "";
-         display: inline-block;
-         height: 100%;
-         vertical-align: middle;
+      content: "";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
     }
 
     &:hover {
@@ -110,7 +114,7 @@ export default {
   }
 
   .selected {
-      color: #f07611;
+    color: #f07611;
   }
 }
 </style>

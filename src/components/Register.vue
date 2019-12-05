@@ -24,8 +24,8 @@
           <input type="text" id="phone" placeholder="+38(___)___ __ __" required />
           <div class="input-invalid">Error</div>
         </div>
-        <div class="input">
-          <abz-select></abz-select>
+        <div class="select">
+          <abz-select @selectData="getData"></abz-select>
         </div>
       </form>
 
@@ -44,7 +44,7 @@
       </div>
 
       <div class="block-title">
-        <h2>Register to get a work</h2>
+        <h2>{{selectData.name}}</h2>
       </div>
       <div class="block-title block-title--sub">
         <h5>Attention! After successful registration and alert, update the list of users in the block from the top</h5>
@@ -60,7 +60,12 @@ import Select from "./Select.vue"
 export default {
   data () {
     return {
-
+      selectData: {}
+    }
+  },
+  methods:{
+    getData(obj) {
+      this.selectData = obj;
     }
   },
   components: {
@@ -79,5 +84,9 @@ export default {
   align-items: flex-start;
 
   margin-top: 65px;
+}
+
+.select {
+  width: 50%;
 }
 </style>
