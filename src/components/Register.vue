@@ -25,48 +25,39 @@
           <div class="input-invalid">Error</div>
         </div>
         <div class="select">
-          <abz-select @selectData="getData"></abz-select>
+          <abz-select @selectData="getData" :positions="positions"></abz-select>
         </div>
       </form>
-
-      <div class="block-title">
-        <h2>Register to get a work</h2>
-      </div>
-      <div class="block-title block-title--sub">
-        <h5>Attention! After successful registration and alert, update the list of users in the block from the top</h5>
-      </div>
-
-      <div class="block-title">
-        <h2>Register to get a work</h2>
-      </div>
-      <div class="block-title block-title--sub">
-        <h5>Attention! After successful registration and alert, update the list of users in the block from the top</h5>
-      </div>
-
-      <div class="block-title">
-        <h2>{{selectData.name}}</h2>
-      </div>
-      <div class="block-title block-title--sub">
-        <h5>Attention! After successful registration and alert, update the list of users in the block from the top</h5>
-      </div>
-    
     </div>
   </div>
 </template>
 
 <script>
-import Select from "./Select.vue"
+import Select from "./Select.vue";
 
 export default {
-  data () {
+  data() {
     return {
+      positions: null,
       selectData: {}
     }
   },
-  methods:{
+  methods: {
     getData(obj) {
       this.selectData = obj;
+    },
+    async getPositions() {
+      await fetch("https://frontend-test-assignment-api.abz.agency/api/v1/positions")
+        .then(function(response) {
+          return response.json();
+        })
+        .then(data => {
+          this.positions = data;
+        });
     }
+  },
+  created() {
+    this.getPositions();
   },
   components: {
     abzSelect: Select

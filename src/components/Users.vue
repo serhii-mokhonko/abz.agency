@@ -20,6 +20,7 @@
           </div>
         </div>
       </div>
+      <!-- somthing wrong with total_users.   -->
       <div class="btn-wrap" v-if="LoadedData.total_users > users.length">
         <button class="btn btn--secondary" @click="loadData(page)">Show more</button>
       </div>
@@ -29,17 +30,16 @@
 
 <script>
 export default {
-  name: "users",
   data() {
     return {
       users: [],
-      LoadedData: null,
+      LoadedData: {},
       page: 1
     };
   },
   methods: {
-    async loadData(page) {
-      await fetch(
+    loadData(page) {
+      fetch(
         "https://frontend-test-assignment-api.abz.agency/api/v1/users?page=" +
           page +
           "&count=6"
@@ -48,11 +48,16 @@ export default {
           return response.json();
         })
         .then(data => {
-          this.LoadedData = data;
+          if (data.success) {
+            this.LoadedData = data;
+            data.users.forEach(element => {
+              this.users.push(element);
+            });
+          } else {
+            console.log(data.message);
+          }
         });
-      this.LoadedData.users.forEach(element => {
-        this.users.push(element);
-      });
+
       this.page++;
     }
   },

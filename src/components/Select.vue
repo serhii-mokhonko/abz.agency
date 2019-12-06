@@ -6,37 +6,30 @@
     <ul class="option" v-if="visible">
       <li
         class="option__item"
-        v-for="(option, index) of options"
-        :key="index"
-        @click="selectPosition(option)"
-        :class="{selected: option.id == content.id}"
-      >{{ option.name }}</li>
+        v-for="item of options.positions"
+        :key="item.id"
+        :class="{selected: item.id == content.id}"
+        @click="selectPosition(item)"
+      >{{ item.name }}</li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    positions: Object
+  },
   data() {
     return {
       visible: false, // options area visible or not
-      content: { id: null, name: "Select Your Possition" }, //element which will be select by user
-      //here is array of objects
-      options: [
-        {
-          id: 0,
-          name: "Option 1"
-        },
-        {
-          id: 4,
-          name: "Option 2"
-        },
-        {
-          id: 2,
-          name: "Option 3"
-        }
-      ]
-    };
+      content: {id: null, name: "Select your positions"}, //element which will be select by users
+    }
+  },
+  computed: {
+    options (){
+      return this.positions
+    }
   },
   methods: {
     selectPosition(item) {
