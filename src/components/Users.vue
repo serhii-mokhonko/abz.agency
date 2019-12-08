@@ -111,13 +111,6 @@ export default {
   }
 }
 
-.btn-wrap {
-  button {
-    display: block;
-    margin: 60px auto 0;
-  }
-}
-
 // mobile
 @media only screen and (max-width: 425px) {
   .user {

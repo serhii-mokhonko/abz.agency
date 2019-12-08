@@ -9,23 +9,35 @@
       </div>
 
       <form class="form">
-        <div class="input">
-          <label for="name" class="input__label">Name</label>
-          <input type="text" id="name" placeholder="Your name" required />
-          <div class="input-invalid">Error</div>
+        <div class="form-group">
+          <label for="name" class="form-group__label">Name</label>
+          <input type="text" id="name" placeholder="Your name" />
+          <div class="invalid">Error</div>
         </div>
-        <div class="input error">
-          <label for="email" class="input__label">Email</label>
-          <input type="text" id="email" placeholder="Your email" required />
-          <div class="input-invalid">Error</div>
+        <div class="form-group error">
+          <label for="email" class="form-group__label">Email</label>
+          <input type="text" id="email" placeholder="Your email" />
+          <div class="invalid">Error</div>
         </div>
-        <div class="input">
-          <label for="phone" class="input__label">Phone</label>
-          <input type="text" id="phone" placeholder="+38(___)___ __ __" required />
-          <div class="input-invalid">Error</div>
+        <div class="form-group error">
+          <label for="phone" class="form-group__label">Phone</label>
+          <input type="text" id="phone" placeholder="+38(___)___ __ __" />
+          <div class="invalid">Error</div>
         </div>
-        <div class="select">
+        <div class="select-group">
           <abz-select @selectData="getData" :positions="positions"></abz-select>
+        </div>
+        <div class="file-input-group error">
+          <div class="file-input">
+            <input type="file" id="file-input" />
+            <label for="file-input" class="file-input__label">Upload your photo</label>
+            <div class="btn-append">Upload</div>
+          </div>
+          <div class="assistive-text">File format jpg up to 5 MB, the minimum size of 70x70px</div>
+          <div class="invalid">Error</div>
+        </div>
+        <div class="btn-wrap">
+          <button class="btn btn--disabled" @click.prevent>Sign Up</button>
         </div>
       </form>
     </div>
@@ -40,14 +52,16 @@ export default {
     return {
       positions: null,
       selectData: {}
-    }
+    };
   },
   methods: {
     getData(obj) {
       this.selectData = obj;
     },
     async getPositions() {
-      await fetch("https://frontend-test-assignment-api.abz.agency/api/v1/positions")
+      await fetch(
+        "https://frontend-test-assignment-api.abz.agency/api/v1/positions"
+      )
         .then(function(response) {
           return response.json();
         })
@@ -68,16 +82,17 @@ export default {
 <style lang="less" scoped>
 @import "../less/index.less";
 
+.container__content{
+  padding-bottom: 150px;
+}
+
 .form {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: flex-start;
+  font-family: @sF;
 
   margin-top: 65px;
-}
-
-.select {
-  width: 50%;
 }
 </style>

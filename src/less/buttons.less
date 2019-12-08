@@ -1,13 +1,22 @@
+.btn-wrap {
+    width: 100%;
+    margin-top: 60px;
+    button {
+        display: block;
+        margin : 0 auto;
+    }
+}
+
 // buttons
 
 .btn {
     font-family: @sF;
     font-size  : 1.33rem;
-    font-weight: 400;
+    font-weight: 700;
 
     border       : none;
     border-radius: 3px;
-    outline: none;
+    outline      : none;
 
     cursor: pointer;
 
@@ -40,11 +49,19 @@
         }
     }
 
+    &--disabled {
+        min-width: 290px;
+        height   : 40px;
+
+        background: #d7d7d7;
+        color     : #8d8c8c;
+        cursor    : unset;
+    }
+
     &--icon {
         min-width : none;
         background: none;
         border    : none;
-        outline: none;
+        outline   : none;
     }
-
 }
