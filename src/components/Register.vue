@@ -37,7 +37,8 @@
           <div class="invalid">Error</div>
         </div>
         <div class="btn-wrap">
-          <button class="btn btn--disabled" @click.prevent>Sign Up</button>
+          <!-- <button class="btn btn--disabled" @click.prevent>Sign Up</button> -->
+          <button class="btn btn--primary">Sign Up</button>
         </div>
       </form>
     </div>
@@ -72,6 +73,7 @@ export default {
   },
   created() {
     this.getPositions();
+    this.$store.dispatch('getToken');
   },
   components: {
     abzSelect: Select
