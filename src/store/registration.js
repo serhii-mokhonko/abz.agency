@@ -19,9 +19,9 @@ export default {
                 console.log("Can't get token from server!");
             }
         }
-
     },
     getters: {
+        getToken: state => state.token,
         getUser: state => state.user
     }
 }
