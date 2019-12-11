@@ -46,16 +46,31 @@
             @blur="$v.user.phone.$touch()"
           />
           <div class="invalid" v-if="!$v.user.phone.required">This field is required!</div>
-          <div class="invalid" v-if="!$v.user.phone.maxLength || !$v.user.phone.minLength">Enter valid phone number!</div>
-          <div class="invalid" v-if="!$v.user.phone.checkNumber">Number should start with code of Ukraine +380. For example: +380XXXXXXXXX</div>
+          <div
+            class="invalid"
+            v-if="!$v.user.phone.maxLength || !$v.user.phone.minLength"
+          >Enter valid phone number!</div>
+          <div
+            class="invalid"
+            v-if="!$v.user.phone.checkNumber"
+          >Number should start with code of Ukraine +380. For example: +380XXXXXXXXX</div>
         </div>
         <div class="select-group">
-          <abz-select @selectData="dataFromSelect" :positions="positions" ></abz-select>
+          <abz-select @selectData="dataFromSelect" :positions="positions"></abz-select>
         </div>
         <div class="file-input-group" :class="{error: $v.user.photo.$error}">
           <div class="file-input">
-            <label for="file-input" class="file-input__label">{{user.photo ? user.photo.name :"Upload your photo"}}</label>
-            <input type="file" id="file-input" accept=".jpeg, .jpg" ref='fileInput' @change="onFileChange"/>
+            <label
+              for="file-input"
+              class="file-input__label"
+            >{{user.photo ? user.photo.name :"Upload your photo"}}</label>
+            <input
+              type="file"
+              id="file-input"
+              accept=".jpeg, .jpg"
+              ref="fileInput"
+              @change="onFileChange"
+            />
             <div class="btn-append" @click="uploadPhoto()">Upload</div>
           </div>
           <div class="assistive-text">File format jpg up to 5 MB, the minimum size of 70x70px</div>
@@ -64,7 +79,12 @@
           <div class="invalid" v-if="!$v.user.photo.fileSize">File size more than 5 Mb!</div>
         </div>
         <div class="btn-wrap">
-          <button class="btn" @click.prevent="sendData()" :class="[!$v.$invalid ? 'btn--primary' : 'btn--disabled' ]" :disabled="$v.$invalid">Sign Up</button>
+          <button
+            class="btn"
+            @click.prevent="sendData()"
+            :class="[!$v.$invalid ? 'btn--primary' : 'btn--disabled' ]"
+            :disabled="$v.$invalid"
+          >Sign Up</button>
         </div>
       </form>
     </div>
@@ -81,7 +101,7 @@ import {
 } from "vuelidate/lib/validators";
 
 //check out 4 first characters of phone namber
-const checkNumber = (val) => {
+const checkNumber = val => {
   if (val) {
     return val.slice(0, 4) === "+380";
   }
@@ -89,20 +109,20 @@ const checkNumber = (val) => {
 };
 
 //check out file type
-const fileType = (val) => {
-  if(val){
+const fileType = val => {
+  if (val) {
     return val.type == "image/jpeg";
   }
   return true;
 };
 
 //check out file size
-const fileSize = (val) => {
-  if(val){
-    return val.size < 5*1024*1024;
+const fileSize = val => {
+  if (val) {
+    return val.size < 5 * 1024 * 1024;
   }
   return true;
-}
+};
 
 export default {
   data() {
@@ -116,6 +136,21 @@ export default {
         photo: null
       }
     };
+  },
+  computed: {
+    getToken () {
+      return this.$store.getters.getToken;
+    },
+    formData () {
+      const formData = new FormData();
+      formData.append("name", this.user.name);
+      formData.append("email", this.user.email);
+      formData.append("phone", this.user.phone);
+      formData.append("position_id", this.user.position_id);
+      formData.append("photo", this.user.photo);
+
+      return formData;
+    }
   },
   methods: {
     dataFromSelect(obj) {
@@ -138,15 +173,35 @@ export default {
       this.$v.user.photo.$touch();
     },
     sendData() {
-      console.log(this.user);
+      fetch("https://frontend-test-assignment-api.abz.agency/api/v1/users", {
+        method: "POST",
+        body: this.formData,
+        headers: {
+          Token: this.getToken
+        }
+      })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          console.log(data);
+          // if (data.success) {
+          //   // process success response
+          // } else {
+          //   // proccess server errors
+          // }
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     },
-    uploadPhoto () {
-			this.$refs.fileInput.click()
-		},
+    uploadPhoto() {
+      this.$refs.fileInput.click();
+    }
   },
   created() {
     this.getPositions();
-    // this.$store.dispatch('getToken');
+    this.$store.dispatch('getToken');
   },
   components: {
     abzSelect: Select
