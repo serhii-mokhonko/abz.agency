@@ -22,14 +22,14 @@ export default {
   },
   data() {
     return {
-      visible: false, // options area visible or not
-      content: {id: null, name: "Select your positions"}, //element which will be select by users
+      visible: false,
+      content: {id: null, name: "Select your positions"}
     }
   },
   computed: {
     options (){
       return this.positions
-    }
+    },
   },
   methods: {
     selectPosition(item) {
@@ -42,6 +42,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+
 .select-container {
   width: 100%;
   margin-bottom: 100px;
