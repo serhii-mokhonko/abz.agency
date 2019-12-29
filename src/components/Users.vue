@@ -32,26 +32,25 @@
 export default {
   data() {
     return {
-      page: 1
-    };
+      // page: 1
+    }
   },
   computed: {
-    
+    page () {
+      return this.$store.getters.getPage;
+    },
     users () {
       return this.$store.getters.getUsers;
     },
-
     LoadedData () {
       return this.$store.getters.getLoadedData;
     }
-
-
   },
 
   methods: {
     loadData(page) {
       this.$store.dispatch('loadUsers', page);
-      this.page++;
+      // this.page++;
     }
   },
 

@@ -34,11 +34,11 @@ export default {
             })
                 .then(function (data) {
                     console.log(data);
-                    // if (data.success) {
-                    //   // process success response
-                    // } else {
-                    //   // proccess server errors
-                    // }
+                    if (data.success) {
+                      return data.message;
+                    } else {
+                      // proccess server errors
+                    }
                 })
                 .catch(function (error) {
                     console.log(error);

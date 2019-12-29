@@ -138,7 +138,7 @@ export default {
     };
   },
   computed: {
-    formData () {
+    formData() {
       const formData = new FormData();
       formData.append("name", this.user.name);
       formData.append("email", this.user.email);
@@ -169,20 +169,26 @@ export default {
       this.user.photo = files[0];
       this.$v.user.photo.$touch();
     },
-
     //register user
     async sendData() {
-      await this.$store.dispatch('getToken');
-      this.$store.dispatch('registerUser', this.formData);
+      await this.$store.dispatch("getToken");
+      await this.$store.dispatch("registerUser", this.formData);
+      await this.$store.dispatch("updateUsersPage");
+      // this.user = {
+      //   name: '',
+      //   email: '',
+      //   phone: '',
+      //   position_id: '',
+      //   photo: ''
+      // }
     },
-
     uploadPhoto() {
       this.$refs.fileInput.click();
     }
   },
 
   created() {
-    //get data (user position) for the select component 
+    //get data (user position) for the select component
     this.getPositions();
   },
 
@@ -206,6 +212,9 @@ export default {
         maxLength: maxLength(13),
         minLength: minLength(13),
         checkNumber
+      },
+      position_id: {
+        required
       },
       photo: {
         required,
