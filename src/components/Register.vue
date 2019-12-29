@@ -138,9 +138,6 @@ export default {
     };
   },
   computed: {
-    getToken () {
-      return this.$store.getters.getToken;
-    },
     formData () {
       const formData = new FormData();
       formData.append("name", this.user.name);
@@ -172,40 +169,27 @@ export default {
       this.user.photo = files[0];
       this.$v.user.photo.$touch();
     },
-    sendData() {
-      fetch("https://frontend-test-assignment-api.abz.agency/api/v1/users", {
-        method: "POST",
-        body: this.formData,
-        headers: {
-          Token: this.getToken
-        }
-      })
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(data) {
-          console.log(data);
-          // if (data.success) {
-          //   // process success response
-          // } else {
-          //   // proccess server errors
-          // }
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
+
+    //register user
+    async sendData() {
+      await this.$store.dispatch('getToken');
+      this.$store.dispatch('registerUser', this.formData);
     },
+
     uploadPhoto() {
       this.$refs.fileInput.click();
     }
   },
+
   created() {
+    //get data (user position) for the select component 
     this.getPositions();
-    this.$store.dispatch('getToken');
   },
+
   components: {
     abzSelect: Select
   },
+  //validations fields
   validations: {
     user: {
       name: {

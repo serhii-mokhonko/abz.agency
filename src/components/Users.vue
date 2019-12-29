@@ -32,35 +32,29 @@
 export default {
   data() {
     return {
-      users: [],
-      LoadedData: {},
       page: 1
     };
   },
+  computed: {
+    
+    users () {
+      return this.$store.getters.getUsers;
+    },
+
+    LoadedData () {
+      return this.$store.getters.getLoadedData;
+    }
+
+
+  },
+
   methods: {
     loadData(page) {
-      fetch(
-        "https://frontend-test-assignment-api.abz.agency/api/v1/users?page=" +
-          page +
-          "&count=6"
-      )
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-          if (data.success) {
-            this.LoadedData = data;
-            data.users.forEach(element => {
-              this.users.push(element);
-            });
-          } else {
-            console.log(data.message);
-          }
-        });
-
+      this.$store.dispatch('loadUsers', page);
       this.page++;
     }
   },
+
   mounted() {
     this.loadData(this.page);
   }
@@ -94,7 +88,7 @@ export default {
     padding-right: 9px;
     img {
       width: 70px;
-      height: auto;
+      height: 70px;
       border-radius: 50%;
     }
   }
