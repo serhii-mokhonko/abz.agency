@@ -1,9 +1,28 @@
 //INPUTS
+.form {
+  font-family: @sF;
+  margin-top : 65px;
+
+  &__row {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : flex-start;
+  }
+}
+
 .form-group {
-  position: relative;
+  width        : 290px;
+  margin       : 0 15px;
   margin-bottom: 42px;
-  padding : 0;
-  width   : 290px;
+  position     : relative;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   input[type="text"] {
     display      : block;
@@ -30,10 +49,10 @@
 }
 
 .assistive-text {
-  font-size: 0.8rem;
-  color: #b7b7b7;
+  font-size   : 0.8rem;
+  color       : #b7b7b7;
   padding-left: 16px;
-  margin-top: 8px;
+  margin-top  : 8px;
 }
 
 .invalid {
@@ -44,15 +63,22 @@
   color       : red;
 }
 
-//select
-.select-group {
-  width: 555px;
-  max-height: 56px;
-}
-
-//block for file input element
+//select and file-input
+.select-group,
 .file-input-group {
-  width: 555px;
+  width        : 450px;
+  margin-left  : 15px;
+  margin-right : 15px;
+  margin-bottom: 36px;
+  max-height   : 56px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 //block for file-input
@@ -62,12 +88,12 @@
 
   input[type="file"] {
     visibility: hidden;
-    position   : absolute;
-    top        : 0;
-    left       : 0;
-    width      : 100%;
-    height     : 100%;
-    z-index    : 10;
+    position  : absolute;
+    top       : 0;
+    left      : 0;
+    width     : 100%;
+    height    : 100%;
+    z-index   : 10;
   }
 
   //it's seems like input
@@ -79,9 +105,9 @@
     border       : 1px solid #b7b7b7;
     border-radius: 3px;
     font-size    : 1.06rem;
-    cursor: pointer;
+    cursor       : pointer;
 
-    //seting text in center of the block
+    //text in center of the block
     &:before {
       content       : "";
       display       : inline-block;
@@ -105,9 +131,9 @@
 
     border       : 2px solid @primary;
     border-radius: 0 3px 3px 0;
-    cursor: pointer;
+    cursor       : pointer;
 
-    &:hover{
+    &:hover {
       background: #fee6d2;
     }
 
@@ -134,7 +160,7 @@
     display: block;
   }
 
-  .assistive-text{
+  .assistive-text {
     display: none;
   }
 
@@ -145,9 +171,50 @@
 @media only screen and (min-width: 1025px) {
   .form-group {
     width: 360px;
+  }
 
-    input[type="text"] {
-      width: 100%;
+  .select-group,
+  .file-input-group {
+    width        : 555px;
+    margin-bottom: 36px;
+  }
+
+}
+
+//tablet
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .form-group {
+    width: 220px;
+  }
+
+  .select-group,
+  .file-input-group {
+    width: 345px;
+  }
+}
+
+//mobile
+@media only screen and (max-width: 425px) {
+  .form {
+    margin-top: 36px;
+
+    &__row {
+      flex-wrap: wrap;
     }
   }
+
+  .form-group {
+    width        : 100%;
+    margin-right : 0;
+    margin-left  : 0;
+    margin-bottom: 36px;
+  }
+
+  .select-group,
+  .file-input-group {
+    width       : 100%;
+    margin-right: 0;
+    margin-left : 0;
+  }
+
 }

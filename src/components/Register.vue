@@ -9,75 +9,86 @@
       </div>
 
       <form class="form">
-        <div class="form-group" :class="{error: $v.user.name.$error}">
-          <label for="name" class="form-group__label">Name</label>
-          <input
-            type="text"
-            id="name"
-            placeholder="Your name"
-            v-model="user.name"
-            @blur="$v.user.name.$touch()"
-          />
-          <div class="invalid" v-if="!$v.user.name.required">This field is required!</div>
-          <div
-            class="invalid"
-            v-if="!$v.user.name.minLength || !$v.user.name.maxLength"
-          >Length of field must be between 2 and 60 characters!</div>
-        </div>
-        <div class="form-group" :class="{error: $v.user.email.$error}">
-          <label for="email" class="form-group__label">Email</label>
-          <input
-            type="text"
-            id="email"
-            placeholder="Your email"
-            v-model="user.email"
-            @blur="$v.user.email.$touch()"
-          />
-          <div class="invalid" v-if="!$v.user.email.required">This field is required!</div>
-          <div class="invalid" v-if="!$v.user.email.email">Enter valid email, please!</div>
-        </div>
-        <div class="form-group" :class="{error: $v.user.phone.$error}">
-          <label for="phone" class="form-group__label">Phone</label>
-          <input
-            type="text"
-            id="phone"
-            placeholder="+38(___)___ __ __"
-            v-model="user.phone"
-            @blur="$v.user.phone.$touch()"
-          />
-          <div class="invalid" v-if="!$v.user.phone.required">This field is required!</div>
-          <div
-            class="invalid"
-            v-if="!$v.user.phone.maxLength || !$v.user.phone.minLength"
-          >Enter valid phone number!</div>
-          <div
-            class="invalid"
-            v-if="!$v.user.phone.checkNumber"
-          >Number should start with code of Ukraine +380. For example: +380XXXXXXXXX</div>
-        </div>
-        <div class="select-group">
-          <abz-select @selectData="dataFromSelect" :positions="positions"></abz-select>
-        </div>
-        <div class="file-input-group" :class="{error: $v.user.photo.$error}">
-          <div class="file-input">
-            <label
-              for="file-input"
-              class="file-input__label"
-            >{{user.photo ? user.photo.name :"Upload your photo"}}</label>
+        <div class="form__row">
+          <!-- name -->
+          <div class="form-group" :class="{error: $v.user.name.$error}">
+            <label for="name" class="form-group__label">Name</label>
             <input
-              type="file"
-              id="file-input"
-              accept=".jpeg, .jpg"
-              ref="fileInput"
-              @change="onFileChange"
+              type="text"
+              id="name"
+              placeholder="Your name"
+              v-model="user.name"
+              @blur="$v.user.name.$touch()"
             />
-            <div class="btn-append" @click="uploadPhoto()">Upload</div>
+            <div class="invalid" v-if="!$v.user.name.required">This field is required!</div>
+            <div
+              class="invalid"
+              v-if="!$v.user.name.minLength || !$v.user.name.maxLength"
+            >Length of field must be between 2 and 60 characters!</div>
           </div>
-          <div class="assistive-text">File format jpg up to 5 MB, the minimum size of 70x70px</div>
-          <div class="invalid" v-if="!$v.user.photo.required">Required field!</div>
-          <div class="invalid" v-if="!$v.user.photo.fileType">File forman isn't jpg / jpeg!</div>
-          <div class="invalid" v-if="!$v.user.photo.fileSize">File size more than 5 Mb!</div>
+          <!-- Email -->
+          <div class="form-group" :class="{error: $v.user.email.$error}">
+            <label for="email" class="form-group__label">Email</label>
+            <input
+              type="text"
+              id="email"
+              placeholder="Your email"
+              v-model="user.email"
+              @blur="$v.user.email.$touch()"
+            />
+            <div class="invalid" v-if="!$v.user.email.required">This field is required!</div>
+            <div class="invalid" v-if="!$v.user.email.email">Enter valid email, please!</div>
+          </div>
+          <!-- Phone -->
+          <div class="form-group" :class="{error: $v.user.phone.$error}">
+            <label for="phone" class="form-group__label">Phone</label>
+            <input
+              type="text"
+              id="phone"
+              placeholder="+38(___)___ __ __"
+              v-model="user.phone"
+              @blur="$v.user.phone.$touch()"
+            />
+            <div class="invalid" v-if="!$v.user.phone.required">This field is required!</div>
+            <div
+              class="invalid"
+              v-if="!$v.user.phone.maxLength || !$v.user.phone.minLength"
+            >Enter valid phone number!</div>
+            <div
+              class="invalid"
+              v-if="!$v.user.phone.checkNumber"
+            >Number should start with code of Ukraine +380. For example: +380XXXXXXXXX</div>
+          </div>
         </div>
+        <div class="form__row">
+          <!-- Select -->
+          <div class="select-group">
+            <abz-select @selectData="dataFromSelect" :positions="positions"></abz-select>
+          </div>
+          <!-- File Input -->
+          <div class="file-input-group" :class="{error: $v.user.photo.$error}">
+            <div class="file-input">
+              <label
+                for="file-input"
+                class="file-input__label"
+              >{{user.photo ? user.photo.name :"Upload your photo"}}</label>
+              <input
+                type="file"
+                id="file-input"
+                accept=".jpeg, .jpg"
+                ref="fileInput"
+                @change="onFileChange"
+              />
+              <div class="btn-append" @click="uploadPhoto()">Upload</div>
+            </div>
+            <div class="assistive-text">File format jpg up to 5 MB, the minimum size of 70x70px</div>
+            <div class="invalid" v-if="!$v.user.photo.required">Required field!</div>
+            <div class="invalid" v-if="!$v.user.photo.fileType">File forman isn't jpg / jpeg!</div>
+            <div class="invalid" v-if="!$v.user.photo.fileSize">File size more than 5 Mb!</div>
+          </div>
+        </div>
+
+        <!-- Button -->
         <div class="btn-wrap">
           <button
             class="btn"
@@ -88,6 +99,7 @@
         </div>
       </form>
     </div>
+    <!-- Modal Window -->
     <abz-modal v-if="showModal" @close="showModal = false">
       <h3 slot="header" v-if="serverRespose.success">Congratulations</h3>
       <h3 slot="header" v-if="!serverRespose.success" style="color: red;">Error!</h3>
@@ -241,21 +253,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less" scoped>
-@import "../less/index.less";
-
-.container__content {
-  padding-bottom: 150px;
-}
-
-.form {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  font-family: @sF;
-
-  margin-top: 65px;
-}
-</style>
