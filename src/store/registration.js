@@ -1,8 +1,12 @@
 export default {
     state: {
-        token: null
+        token: null,
+        response: {},
     },
     mutations: {
+        setResponse (state, obj) {
+            state.response = obj;
+        },
         setToken(state, token) {
             state.token = token
         }
@@ -21,7 +25,7 @@ export default {
         },
 
         //register user
-        async registerUser({ getters }, data) {
+        async registerUser({commit, getters }, data) {
 
             await fetch("https://frontend-test-assignment-api.abz.agency/api/v1/users", {
                 method: "POST",
@@ -33,20 +37,19 @@ export default {
                 return response.json();
             })
                 .then(function (data) {
-                    console.log(data);
-                    if (data.success) {
-                      return data.message;
-                    } else {
-                      // proccess server errors
-                    }
+                    commit('setResponse', data);
                 })
-                .catch(function (error) {
-                    console.log(error);
+                .catch(() => {
+                    commit('setResponse', {
+                        success: false,
+                        message: "Something gone wrong!"
+                    })
                 });
         }
     },
     getters: {
         getToken: state => state.token,
-        getUser: state => state.user
+        getResponse: state => state.response
+
     }
 }

@@ -88,17 +88,19 @@
         </div>
       </form>
     </div>
+    <abz-modal v-if="showModal" @close="showModal = false">
+      <h3 slot='header' v-if="serverRespose.success">Congratulations</h3>
+      <h3 slot='header' v-if="!serverRespose.success" style="color: red;">Error!</h3>
+      <span slot='body'>{{ serverRespose.message }}</span>
+    </abz-modal>
   </div>
 </template>
 
 <script>
 import Select from "./Select.vue";
-import {
-  required,
-  minLength,
-  maxLength,
-  email
-} from "vuelidate/lib/validators";
+import Modal from "./Modal.vue";
+
+import { required, minLength, maxLength, email } from "vuelidate/lib/validators";
 
 //check out 4 first characters of phone namber
 const checkNumber = val => {
@@ -127,6 +129,8 @@ const fileSize = val => {
 export default {
   data() {
     return {
+      modalMessage: "Lorem ipsum, dolor sit. Lorem ipsum, dolor sit. Lorem ipsum, dolor sit.",
+      showModal: false,
       positions: null,
       user: {
         name: null,
@@ -138,6 +142,9 @@ export default {
     };
   },
   computed: {
+    serverRespose () {
+      return this.$store.getters.getResponse;
+    },
     formData() {
       const formData = new FormData();
       formData.append("name", this.user.name);
@@ -174,6 +181,7 @@ export default {
       await this.$store.dispatch("getToken");
       await this.$store.dispatch("registerUser", this.formData);
       await this.$store.dispatch("updateUsersPage");
+      this.showModal = true;
       // this.user = {
       //   name: '',
       //   email: '',
@@ -193,7 +201,8 @@ export default {
   },
 
   components: {
-    abzSelect: Select
+    abzSelect: Select,
+    abzModal: Modal
   },
   //validations fields
   validations: {
