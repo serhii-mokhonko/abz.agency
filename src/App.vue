@@ -7,6 +7,7 @@
     <abz-requirements></abz-requirements>
     <abz-users></abz-users>
     <abz-register></abz-register>
+    <abz-footer></abz-footer>
   </div>
 </template>
 
@@ -18,6 +19,7 @@ import Relationships from "./components/Relationships.vue";
 import Requirements from "./components/Requirements.vue";
 import Users from "./components/Users.vue";
 import Register from "./components/Register.vue";
+import Footer from "./components/Footer/Footer.vue";
 
 export default {
   name: "app",
@@ -28,7 +30,8 @@ export default {
     abzRelationships: Relationships,
     abzRequirements: Requirements,
     abzUsers: Users,
-    abzRegister: Register
+    abzRegister: Register,
+    abzFooter: Footer
   }
 };
 </script>
