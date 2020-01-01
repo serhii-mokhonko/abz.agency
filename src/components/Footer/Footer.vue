@@ -3,6 +3,7 @@
     <div class="container">
       <div class="container__content">
         <footer-top />
+        <footer-middle />
         <footer-bottom />
       </div>
     </div>
@@ -11,10 +12,13 @@
 
 <script>
 import FooterTop from "./FooterTop.vue";
+import FooterMiddle from "./FooterMiddle.vue";
 import FooterBottom from "./FooterBottom.vue";
+
 export default {
   components: {
     footerTop: FooterTop,
+    footerMiddle: FooterMiddle,
     footerBottom: FooterBottom
   }
 };
@@ -24,7 +28,7 @@ export default {
 @import "../../less/index.less";
 
 footer {
-    background-color: @secondary;
-    color: #fff;
+  background-color: @secondary;
+  color: #fff;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="footer__bottom">
-    <div class="copyright">&copy;abz.agency specially for the test task</div>
+    <div class="copyright">&copy; abz.agency specially for the test task</div>
     <div class="social">
       <ul>
         <li>
