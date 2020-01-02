@@ -26,7 +26,16 @@
 
     cursor: pointer;
 
-    transition: all 0.2s linear;
+    transition: all 0.1s linear;
+
+    svg {
+        fill: #283593;
+        transition: all 0.1s linear;
+
+        &:hover {
+            fill:#2638bb;
+        }
+    }
 
     &--primary {
         min-width: 290px;

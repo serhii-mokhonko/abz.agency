@@ -29,7 +29,7 @@
   background-position: center center;
 
   &__content {
-    padding-top: 150px;
+    padding-top: 140px;
     padding-bottom: 140px;
   }
 }
@@ -97,7 +97,7 @@
 
     &__content{
       padding-top: 120px;
-      padding-bottom: 125px;
+      padding-bottom: 120px;
     }
   }
 
@@ -110,6 +110,7 @@
   }
 }
 
+//desktop
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   .man-laptop__tablet {
     display: none;

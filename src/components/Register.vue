@@ -253,3 +253,25 @@ export default {
   }
 };
 </script>
+
+<style lang="less" scoped>
+.container__content {
+  padding-top: 20px;
+  padding-bottom: 150px;
+}
+
+//tablet
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .container__content {
+    padding-bottom: 120px;
+  }
+}
+
+//mobile
+@media only screen and (max-width: 425px) {
+  .container__content {
+    padding-top: 0px;
+    padding-bottom: 70px;
+  }
+}
+</style>

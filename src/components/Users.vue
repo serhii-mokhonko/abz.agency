@@ -20,7 +20,6 @@
           </div>
         </div>
       </div>
-      <!-- somthing wrong with total_users.   -->
       <div class="btn-wrap" v-if="LoadedData.total_users > users.length">
         <button class="btn btn--secondary" @click="loadData(page)">Show more</button>
       </div>
@@ -31,26 +30,23 @@
 <script>
 export default {
   data() {
-    return {
-      // page: 1
-    }
+    return {};
   },
   computed: {
-    page () {
+    page() {
       return this.$store.getters.getPage;
     },
-    users () {
+    users() {
       return this.$store.getters.getUsers;
     },
-    LoadedData () {
+    LoadedData() {
       return this.$store.getters.getLoadedData;
     }
   },
 
   methods: {
     loadData(page) {
-      this.$store.dispatch('loadUsers', page);
-      // this.page++;
+      this.$store.dispatch("loadUsers", page);
     }
   },
 
@@ -64,8 +60,8 @@ export default {
 @import "../less/index.less";
 
 .container__content {
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 140px;
+  padding-bottom: 140px;
 }
 
 .users {
@@ -106,6 +102,11 @@ export default {
 
 // mobile
 @media only screen and (max-width: 425px) {
+  .container__content {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
   .user {
     margin: 0 auto 30px;
 
@@ -124,6 +125,11 @@ export default {
 
 // tablet
 @media only screen and (min-width: 426px) and (max-width: 768px) {
+  .container__content {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
   .user {
     max-width: 220px;
     margin-top: 42px;

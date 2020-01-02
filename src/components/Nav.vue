@@ -32,7 +32,9 @@
         </div>
         <img src="../assets/user-superstar.jpg" alt="avatar" class="user__avatar" />
         <button class="btn btn--icon">
-          <img src="../assets/sign-out.svg" alt="logout" />
+          <svg width="24px" height="20px">
+            <use xlink:href="../assets/sign-out.svg#sign-out" />
+          </svg>
         </button>
       </div>
       <div class="menu-gadget">

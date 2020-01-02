@@ -27,9 +27,13 @@
 
 <style lang="less" scoped>
 @import "../less/index.less";
+
+.container__content {
+  padding-bottom: 140px;
+}
+
 .content {
   margin-top: 60px;
-  padding-bottom: 145px;
 }
 .content__block {
   width: 100%;
@@ -49,12 +53,15 @@
 
 //mobile
 @media only screen and (max-width: 425px) {
+  .container__content {
+    padding-bottom: 70px;
+  }
+
   .content {
     flex-direction: column;
     width: 100%;
     min-width: 290px;
     margin: 0 auto;
-    padding-bottom: 75px;
 
     &__block {
       margin-top: 30px;
@@ -65,9 +72,12 @@
 
 //tablet
 @media only screen and (min-width: 426px) and (max-width: 768px) {
+  .container__content {
+    padding-bottom: 120px;
+  }
+
   .content {
     flex-direction: column;
-    padding-bottom: 122px;
   }
   .content__block {
     max-width: 600px;

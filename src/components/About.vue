@@ -22,8 +22,8 @@
 <style lang="less" scoped>
 @import "../less/index.less";
 .container__content {
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 140px;
+  padding-bottom: 130px;
 }
 
 .content {
@@ -57,8 +57,8 @@
 //mobile
 @media only screen and (max-width: 425px) {
   .container__content {
-    padding-top: 75px;
-    padding-bottom: 75px;
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
 
   .content {
@@ -79,8 +79,8 @@
 //tablet
 @media only screen and (min-width: 426px) and (max-width: 768px) {
   .container__content {
-    padding-top: 75px;
-    padding-bottom: 75px;
+    padding-top: 120px;
+    padding-bottom: 120px;
   }
 }
 </style>
