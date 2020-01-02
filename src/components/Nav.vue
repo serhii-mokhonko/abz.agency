@@ -49,6 +49,12 @@
 <style lang="less" scoped>
 @import "../less/index.less";
 
+.container {
+  position: fixed;
+  top: 0;
+  background: #fff;
+  z-index: 1000;
+}
 .container__content {
   height: 64px;
   display: flex;

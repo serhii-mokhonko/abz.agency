@@ -46,6 +46,7 @@ export default {
 html {
   font-family: @mF;
   font-size: 15px;
+  margin-top: 64px;
 }
 
 * {
