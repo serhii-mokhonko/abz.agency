@@ -2,7 +2,9 @@
   <div class="container">
     <div class="container__content">
       <div class="logo">
-        <img src="../assets/logo.svg" alt="logo" />
+        <svg>
+          <use xlink:href="../assets/logo-2.svg#logo-main" />
+        </svg>
       </div>
       <nav class="nav">
         <ul>
@@ -53,8 +55,10 @@
 }
 
 .logo {
-  img {
-    height: 26px;
+  svg {
+    height: 24px;
+    width: 134px;
+    fill: #181818;
   }
 }
 .nav {
@@ -128,6 +132,4 @@
     display: block;
   }
 }
-
-
 </style>
