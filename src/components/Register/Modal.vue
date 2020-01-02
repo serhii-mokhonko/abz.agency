@@ -27,7 +27,7 @@ export default {};
 </script>
 
 <style lang='less' scoped>
-@import "../less/variables.less";
+@import "../../less/variables.less";
 .modal-mask {
   position: fixed;
   z-index: 9998;

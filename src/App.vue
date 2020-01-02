@@ -18,7 +18,7 @@ import About from "./components/About.vue";
 import Relationships from "./components/Relationships.vue";
 import Requirements from "./components/Requirements.vue";
 import Users from "./components/Users.vue";
-import Register from "./components/Register.vue";
+import Register from "./components/Register/Register.vue";
 import Footer from "./components/Footer/Footer.vue";
 
 export default {

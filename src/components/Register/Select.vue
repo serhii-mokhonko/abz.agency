@@ -61,7 +61,7 @@ export default {
     content: "";
     width: 16px;
     height: 9px;
-    background: url("../assets/caret-down.svg") no-repeat;
+    background: url("../../assets/caret-down.svg") no-repeat;
     position: absolute;
     top: 50%;
     right: 16px;
