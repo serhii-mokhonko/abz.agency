@@ -2,7 +2,9 @@
   <div class="footer-top">
     <div class="footer__logo">
       <a href="#">
-        <img src="../../assets/logoWhite.svg" alt="logo" />
+        <svg>
+          <use xlink:href="../../assets/logo-2.svg#logo-main" />
+        </svg>
       </a>
     </div>
     <nav class="footer__nav">
@@ -39,9 +41,10 @@
 }
 
 .footer__logo {
-  img {
-    width: auto;
+  svg {
+    width: 134px;
     height: 24px;
+    fill: #fff;
   }
 }
 

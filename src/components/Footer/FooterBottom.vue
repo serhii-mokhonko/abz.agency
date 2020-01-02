@@ -5,27 +5,37 @@
       <ul>
         <li>
           <a href="#">
-            <img src="../../assets/facebook.svg" alt="facebook" />
+            <svg width="26px" height="26px">
+              <use xlink:href="../../assets/social.svg#facebook" />
+            </svg>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="../../assets/linkedin.svg" alt="facebook" />
+            <svg width="26px" height="26px">
+              <use xlink:href="../../assets/social.svg#linkedin" />
+            </svg>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="../../assets/instagram.svg" alt="facebook" />
+            <svg width="26px" height="26px">
+              <use xlink:href="../../assets/social.svg#instagram" />
+            </svg>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="../../assets/twitter.svg" alt="facebook" />
+            <svg width="26px" height="26px">
+              <use xlink:href="../../assets/social.svg#twitter" />
+            </svg>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="../../assets/pinterest.svg" alt="facebook" />
+            <svg width="26px" height="26px">
+              <use xlink:href="../../assets/social.svg#pinterest" />
+            </svg>
           </a>
         </li>
       </ul>
@@ -34,6 +44,8 @@
 </template>
 
 <style lang="less" scoped>
+@import "../../less/index.less";
+
 .footer__bottom {
   display: flex;
   justify-content: space-between;
@@ -44,6 +56,14 @@
 
 .social {
   ul {
+    svg {
+      fill: #fff;
+
+      &:hover {
+        fill: @primary;
+      }
+    }
+
     & li {
       display: inline;
       margin-right: 22px;
