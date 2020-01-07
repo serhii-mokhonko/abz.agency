@@ -1,50 +1,65 @@
 <template>
-  <div class="container">
-    <div class="container__content">
-      <div class="logo">
-        <svg>
-          <use xlink:href="../assets/logo-2.svg#logo-main" />
-        </svg>
-      </div>
-      <nav class="nav">
-        <ul>
-          <li>
-            <a href="#">About me</a>
-          </li>
-          <li>
-            <a href="#" class="active">Relationships</a>
-          </li>
-          <li>
-            <a href="#">Requirements</a>
-          </li>
-          <li>
-            <a href="#">User</a>
-          </li>
-          <li>
-            <a href="#">Sign Up</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="user">
-        <div class="user__info">
-          <span class="name">Superstar</span>
-          <span class="email">Superstar@gmail.com</span>
-        </div>
-        <img src="../assets/user-superstar.jpg" alt="avatar" class="user__avatar" />
-        <button class="btn btn--icon">
-          <svg width="24px" height="20px">
-            <use xlink:href="../assets/sign-out.svg#sign-out" />
+    <div class="container">
+      <div class="container__content">
+        <div class="logo">
+          <svg>
+            <use xlink:href="../assets/logo-2.svg#logo-main" />
           </svg>
-        </button>
+        </div>
+        <nav class="nav">
+          <ul>
+            <li>
+              <a href="#">About me</a>
+            </li>
+            <li>
+              <a href="#" class="active">Relationships</a>
+            </li>
+            <li>
+              <a href="#">Requirements</a>
+            </li>
+            <li>
+              <a href="#">User</a>
+            </li>
+            <li>
+              <a href="#">Sign Up</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="user">
+          <div class="user__info">
+            <span class="name">Superstar</span>
+            <span class="email">Superstar@gmail.com</span>
+          </div>
+          <img src="../assets/user-superstar.jpg" alt="avatar" class="user__avatar" />
+          <button class="btn btn--icon">
+            <svg width="24px" height="20px">
+              <use xlink:href="../assets/sign-out.svg#sign-out" />
+            </svg>
+          </button>
+        </div>
+        <div class="menu-gadget" @click="showSidebar = !showSidebar">
+          <button class="btn btn--icon">
+            <img src="../assets/line-menu.svg" alt="line-menu" />
+          </button>
+        </div>
       </div>
-      <div class="menu-gadget">
-        <button class="btn btn--icon">
-          <img src="../assets/line-menu.svg" alt="line-menu" />
-        </button>
-      </div>
+      <abz-sidebar v-model='showSidebar'/>
     </div>
-  </div>
 </template>
+
+<script>
+import Sidebar from "./Sidebar.vue";
+export default {
+  data () {
+    return {
+      showSidebar: false
+    }
+  },
+  components: {
+    abzSidebar: Sidebar
+  }
+}
+</script>
 
 <style lang="less" scoped>
 @import "../less/index.less";
