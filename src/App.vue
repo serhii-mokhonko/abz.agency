@@ -2,35 +2,27 @@
   <div id="app">
     <abz-nav></abz-nav>
     <abz-header></abz-header>
-    <abz-about></abz-about>
-    <abz-relationships></abz-relationships>
-    <abz-requirements></abz-requirements>
-    <abz-users></abz-users>
-    <abz-register></abz-register>
+
+    <abz-content></abz-content>
+
+    <!-- <router-view></router-view> -->
+    
     <abz-footer></abz-footer>
   </div>
 </template>
 
 <script>
-import Nav from "./components/Nav.vue";
-import Header from "./components/Header.vue";
-import About from "./components/About.vue";
-import Relationships from "./components/Relationships.vue";
-import Requirements from "./components/Requirements.vue";
-import Users from "./components/Users.vue";
-import Register from "./components/Register/Register.vue";
-import Footer from "./components/Footer/Footer.vue";
+import Nav from "./components/Nav";
+import Header from "./components/Header";
+import Content from "./components/Content";
+import Footer from "./components/Footer/Footer";
 
 export default {
   name: "app",
   components: {
     abzNav: Nav,
     abzHeader: Header,
-    abzAbout: About,
-    abzRelationships: Relationships,
-    abzRequirements: Requirements,
-    abzUsers: Users,
-    abzRegister: Register,
+    abzContent: Content,
     abzFooter: Footer
   }
 };

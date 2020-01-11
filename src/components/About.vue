@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="aboutMe">
     <div class="container__content">
       <div class="block-title">
         <h2>Let's get acquainted</h2>

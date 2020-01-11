@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="signUp">
     <div class="container__content">
       <div class="block-title">
         <h2>Register to get a work</h2>

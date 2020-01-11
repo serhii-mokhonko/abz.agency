@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="requirements">
     <div class="container__content">
       <div class="block-title">
         <h2 class="text-white">General requirements for the test task</h2>
