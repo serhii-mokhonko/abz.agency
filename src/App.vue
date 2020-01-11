@@ -2,11 +2,7 @@
   <div id="app">
     <abz-nav></abz-nav>
     <abz-header></abz-header>
-
-    <abz-content></abz-content>
-
-    <!-- <router-view></router-view> -->
-    
+    <router-view></router-view>
     <abz-footer></abz-footer>
   </div>
 </template>
@@ -14,7 +10,6 @@
 <script>
 import Nav from "./components/Nav";
 import Header from "./components/Header";
-import Content from "./components/Content";
 import Footer from "./components/Footer/Footer";
 
 export default {
@@ -22,7 +17,6 @@ export default {
   components: {
     abzNav: Nav,
     abzHeader: Header,
-    abzContent: Content,
     abzFooter: Footer
   }
 };
