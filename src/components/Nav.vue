@@ -8,20 +8,8 @@
       </div>
       <nav class="nav">
         <ul>
-          <li>
-            <router-link to="#aboutMe" exact>About me</router-link>
-          </li>
-          <li>
-            <router-link to="#relationships" exact>Relationships</router-link>
-          </li>
-          <li>
-            <router-link to="#requirements" exact>Requirements</router-link>
-          </li>
-          <li>
-            <router-link to="#user" exact>User</router-link>
-          </li>
-          <li>
-            <router-link to="#signUp" exact>Sign Up</router-link>
+          <li v-for='(item, index) in links' :key='index'>
+            <router-link :to="item.route">{{ item.name }}</router-link>
           </li>
         </ul>
       </nav>
@@ -43,7 +31,7 @@
         </button>
       </div>
     </div>
-    <abz-sidebar v-model="showSidebar" />
+    <abz-sidebar v-model="showSidebar" :navLinks='links'/>
   </div>
 </template>
 
@@ -52,7 +40,14 @@ import Sidebar from "./Sidebar.vue";
 export default {
   data() {
     return {
-      showSidebar: false
+      showSidebar: false,
+      links: [
+        {name: 'About me', route: '#aboutMe'},
+        {name: 'Relationships', route: '#relationships'},
+        {name: 'Requirements', route: '#requirements'},
+        {name: 'User', route: '#user'},
+        {name: 'Sign Up', route: '#signUp'}
+      ]
     };
   },
   components: {

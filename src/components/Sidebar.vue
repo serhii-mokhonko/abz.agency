@@ -11,23 +11,11 @@
         </div>
       </div>
       <ul>
-        <li>
-          <a href="#" @click="$emit('change', !show)">About me</a>
+        <li v-for='(item, index) in navLinks' :key='index'  @click="$emit('change', !show)">
+          <router-link :to='item.route'>{{ item.name }}</router-link>
         </li>
-        <li>
-          <a href="#" class="active" @click="$emit('change', !show)">Relationships</a>
-        </li>
-        <li>
-          <a href="#" @click="$emit('change', !show)">Requirements</a>
-        </li>
-        <li>
-          <a href="#" @click="$emit('change', !show)">User</a>
-        </li>
-        <li>
-          <a href="#" @click="$emit('change', !show)">Sign Up</a>
-        </li>
-        <li>
-          <a href="#" @click="$emit('change', !show)">Sign Out</a>
+        <li @click="$emit('change', !show)">
+          <a href="#">Sign Out</a>
         </li>
       </ul>
     </div>
@@ -42,12 +30,15 @@ export default {
     event: "change"
   },
   props: {
-      show: Boolean
+      show: Boolean,
+      navLinks: Array
   }
 };
 </script>
 
 <style lang="less" scoped>
+@import "../less/index.less";
+
 .maskcontent {
   display: none;
   width: 100%;
@@ -88,6 +79,10 @@ export default {
 
     &:first-child {
       margin-top: 34px;
+    }
+
+    .active {
+      color: @secondary;
     }
   }
 }
