@@ -8,7 +8,7 @@
       </div>
       <nav class="nav">
         <ul>
-          <li v-for='(item, index) in links' :key='index'>
+          <li v-for="(item, index) in links" :key="index">
             <router-link :to="item.route">{{ item.name }}</router-link>
           </li>
         </ul>
@@ -31,7 +31,7 @@
         </button>
       </div>
     </div>
-    <abz-sidebar v-model="showSidebar" :navLinks='links'/>
+    <abz-sidebar v-model="showSidebar" :navLinks="links" />
   </div>
 </template>
 
@@ -40,15 +40,13 @@ import Sidebar from "./Sidebar.vue";
 export default {
   data() {
     return {
-      showSidebar: false,
-      links: [
-        {name: 'About me', route: '#aboutMe'},
-        {name: 'Relationships', route: '#relationships'},
-        {name: 'Requirements', route: '#requirements'},
-        {name: 'User', route: '#user'},
-        {name: 'Sign Up', route: '#signUp'}
-      ]
+      showSidebar: false
     };
+  },
+  computed: {
+    links() {
+      return this.$store.getters.getLinks;
+    }
   },
   components: {
     abzSidebar: Sidebar

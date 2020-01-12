@@ -9,25 +9,23 @@
     </div>
     <nav class="footer__nav">
       <ul>
-        <li>
-          <a href="#">About me</a>
-        </li>
-        <li>
-          <a href="#">Relationships</a>
-        </li>
-        <li>
-          <a href="#">Requirements</a>
-        </li>
-        <li>
-          <a href="#">Users</a>
-        </li>
-        <li>
-          <a href="#">Sign Up</a>
+        <li v-for="(link, index) in links" :key="index">
+          <router-link :to="link.route">{{ link.name }}</router-link>
         </li>
       </ul>
     </nav>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    links() {
+      return this.$store.getters.getLinks;
+    }
+  }
+};
+</script>
 
 <style lang="less" scoped>
 @import "../../less/index.less";
