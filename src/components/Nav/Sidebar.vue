@@ -65,6 +65,7 @@ export default {
   top: 0;
   left: 0;
   z-index: 1500;
+  overflow-y: scroll;
 
   transition: 0.5s;
   transform: translateX(-260px);

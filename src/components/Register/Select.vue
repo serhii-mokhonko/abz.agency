@@ -1,48 +1,66 @@
 <template>
   <div class="select-container">
     <div class="select-input" @click="visible = !visible">
-      <span class="select-input__content">{{ content.name }}</span>
+      <span class="select-input__content">{{ selected.name }}</span>
     </div>
     <ul class="option" v-if="visible">
       <li
         class="option__item"
         v-for="item of options.positions"
         :key="item.id"
-        :class="{selected: item.id == content.id}"
+        :class="{selected: item.id == position}"
         @click="selectPosition(item)"
-      >{{ item.name }}</li>
+      >
+        {{ item.name }}
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
+  model: {
+    prop: 'position',
+    event: 'change'
+  },
   props: {
-    positions: Object
+    position: {
+      type: Number
+    }
   },
   data() {
     return {
       visible: false,
-      content: {id: null, name: "Select your positions"}
+      options: null
     }
   },
   computed: {
-    options (){
-      return this.positions
-    },
+    selected () {
+      if(this.position){
+        const options = this.options['positions'];
+        return options.find(el => el.id == this.position);
+      }else {
+        return {id: null, name: "Select your position"}
+      }
+    }
   },
   methods: {
     selectPosition(item) {
-      this.content = item;
-      this.$emit("selectData", item);
+      this.$emit("change", item.id);
       this.visible = !this.visible;
     }
+  },
+  created () {
+    fetch("https://frontend-test-assignment-api.abz.agency/api/v1/positions")
+      .then(res => res.json())
+      .then(data => {
+        this.options = data;
+      });
   }
 };
 </script>
 
 <style lang="less" scoped>
-
 .select-container {
   width: 100%;
   margin-bottom: 100px;
@@ -86,6 +104,7 @@ export default {
   width: 100%;
   position: absolute;
   top: 0;
+  z-index: 100;
 
   &__item {
     list-style: none;

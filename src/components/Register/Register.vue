@@ -63,7 +63,7 @@
         <div class="form__row">
           <!-- Select -->
           <div class="select-group">
-            <abz-select @selectData="dataFromSelect" :positions="positions"></abz-select>
+            <abz-select v-model="user.position_id"></abz-select>
           </div>
           <!-- File Input -->
           <div class="file-input-group" :class="{error: $v.user.photo.$error}">
@@ -147,7 +147,6 @@ export default {
   data() {
     return {
       showModal: false,
-      positions: null,
       user: {
         name: null,
         email: null,
@@ -173,19 +172,6 @@ export default {
     }
   },
   methods: {
-    dataFromSelect(obj) {
-      this.user.position_id = obj.id;
-    },
-    async getPositions() {
-      await fetch(
-        "https://frontend-test-assignment-api.abz.agency/api/v1/positions"
-      )
-        .then(res => res.json())
-        .then(data => {
-          this.positions = data;
-        });
-    },
-    //get file from the form
     onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length) return;
@@ -212,11 +198,6 @@ export default {
     uploadPhoto() {
       this.$refs.fileInput.click();
     }
-  },
-
-  created() {
-    //get data (user position) for the select component
-    this.getPositions();
   },
 
   components: {
