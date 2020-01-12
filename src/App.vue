@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer/Footer";
 

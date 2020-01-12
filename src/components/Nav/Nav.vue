@@ -3,7 +3,7 @@
     <div class="container__content">
       <div class="logo">
         <svg>
-          <use xlink:href="../assets/logo-2.svg#logo-main" />
+          <use xlink:href="../../assets/logo-2.svg#logo-main" />
         </svg>
       </div>
       <nav class="nav">
@@ -18,16 +18,16 @@
           <span class="name">Superstar</span>
           <span class="email">Superstar@gmail.com</span>
         </div>
-        <img src="../assets/user-superstar.jpg" alt="avatar" class="user__avatar" />
+        <img src="../../assets/user-superstar.jpg" alt="avatar" class="user__avatar" />
         <button class="btn btn--icon">
           <svg width="24px" height="20px">
-            <use xlink:href="../assets/sign-out.svg#sign-out" />
+            <use xlink:href="../../assets/sign-out.svg#sign-out" />
           </svg>
         </button>
       </div>
       <div class="menu-gadget" @click="showSidebar = !showSidebar">
         <button class="btn btn--icon">
-          <img src="../assets/line-menu.svg" alt="line-menu" />
+          <img src="../../assets/line-menu.svg" alt="line-menu" />
         </button>
       </div>
     </div>
@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../less/index.less";
+@import "../../less/index.less";
 
 .container {
   position: fixed;

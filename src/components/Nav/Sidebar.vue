@@ -7,7 +7,7 @@
           <span class="email">Superstar@gmail.com</span>
         </div>
         <div class="user__avatar">
-          <img src="../assets/user-superstar.jpg" alt="avatar" class="user__avatar" />
+          <img src="../../assets/user-superstar.jpg" alt="avatar" class="user__avatar" />
         </div>
       </div>
       <ul>
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../less/index.less";
+@import "../../less/index.less";
 
 .maskcontent {
   display: none;
