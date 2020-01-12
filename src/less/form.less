@@ -117,9 +117,6 @@
   }
 
   .btn-append {
-    width : 130px;
-    height: 100%;
-
     font-size  : 1.33rem;
     font-weight: 700;
     color      : @primary;
@@ -143,6 +140,25 @@
       height        : 100%;
       vertical-align: middle;
     }
+
+    &__icon {
+      position : absolute;
+      top      : 50%;
+      left     : 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .btn-append--desktop {
+    width : 130px;
+    height: 100%;
+
+  }
+
+  .btn-append--mobile {
+    display: none;
+    width  : 52px;
+    height : 100%;
   }
 }
 
@@ -218,4 +234,11 @@
     margin-left : 0;
   }
 
+  .btn-append--desktop {
+    display: none;
+  }
+
+  .btn-append--mobile {
+    display: block !important;
+  }
 }

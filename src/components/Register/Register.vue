@@ -79,7 +79,10 @@
                 ref="fileInput"
                 @change="onFileChange"
               />
-              <div class="btn-append" @click="uploadPhoto()">Upload</div>
+              <div class="btn-append btn-append--desktop" @click="uploadPhoto()">Upload</div>
+              <div class="btn-append btn-append--mobile" @click="uploadPhoto()">
+                <img src="../../assets/upload.svg" alt="upload" class="btn-append__icon">
+              </div>
             </div>
             <div class="assistive-text">File format jpg up to 5 MB, the minimum size of 70x70px</div>
             <div class="invalid" v-if="!$v.user.photo.required">Required field!</div>
